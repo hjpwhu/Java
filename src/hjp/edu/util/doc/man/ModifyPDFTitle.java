@@ -8,10 +8,10 @@ import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 
 public class ModifyPDFTitle {
 
-	public static String confOrJour = "(NIPS2017)";
+	public static String confOrJour = "(KBS2018)";
 
 	public static void main(String[] args) {
-		String pdfDir = "/Users/hjp/Downloads/";
+		String pdfDir = "/Users/hjp/Downloads/kbs/";
 		listFile(pdfDir);
 
 	}
@@ -41,7 +41,7 @@ public class ModifyPDFTitle {
 		System.out.println(filePath);
 		File file = new File(filePath);
 		PDDocument doc = null;
-
+		
 		try {
 			doc = PDDocument.load(file);
 		} catch (IOException e) {
@@ -51,7 +51,7 @@ public class ModifyPDFTitle {
 		PDDocumentInformation info = doc.getDocumentInformation();
 		String title = info.getTitle();
 		if (title != null) {
-			title = title.replace("*", " ").replace(":", " ").replace("  ", " ").replace("  ", " ").replace("  ", " ");
+			title = title.replace("*", " ").replace(":", " ").replace("  ", " ").replace("  ", " ").replace("  ", " ").replace("/", " ");
 			try {
 				doc.close();
 			} catch (IOException e) {
